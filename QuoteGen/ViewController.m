@@ -49,33 +49,53 @@
 // Adding action after the button Tapped
 -(IBAction)quoteButtonTapped:(id)sender {
 
-    // This code is to take values from myQuotes array
-    /*
-    // 1 - Get nos of rows in a array
-    int array_tot = [self.myQuotes count];
+    // Loads values from myQuotes array if user selects "Mine" in SegmentControl
+    if ( self.quoteOpt.selectedSegmentIndex == 2 ) {
+        
+         // 1 - Get nos of rows in a array
+         int array_tot = [self.myQuotes count];
+         
+         // 2 - Get random index
+         int index = (arc4random() % array_tot);
+         
+         // 3 - Get the quote string for the index
+         NSString *my_quote = self.myQuotes[index];
+         
+         //4 - Dispaly the quote in the textview
+         self.quoteText.text = [NSString stringWithFormat:@"Quote: \n\n%@", my_quote];
+        
+    } else {
     
-    // 2 - Get random index
-    int index = (arc4random() % array_tot);
+        // 2.1 determine category
+        NSString *selectedCategory = @"classic";
+        if ( self.quoteOpt.selectedSegmentIndex == 1 ) {
+            selectedCategory = @"modern";
+        }
+        
+        
+        // 2.2 filter array by category using predicate
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"category == %@", selectedCategory];
+        NSArray *filteredArray = [self.movieQuotes filteredArrayUsingPredicate:predicate];
+        
+        // 2.3 get total nos in filtered array
+        int filteredArrayCount = [filteredArray count];
+        
+        if (filteredArrayCount > 0) {
+        
+            // 2.4 get random index
+            int index = (arc4random() % filteredArrayCount);
+        
+            // 2.5 Get the quote string for the index
+            NSString *quote = filteredArray[index][@"quote"];
+        
+            //2.6  Dispaly the quote in the textview
+            self.quoteText.text = [NSString stringWithFormat:@"Movie Quote \n\n%@", quote];
+        } else {
+            self.quoteText.text = [NSString stringWithFormat:@"Sorry, No Quotes to display."];
+        }
+    }
     
-    // 3 - Get the quote string for the index
-    NSString *my_quote = self.myQuotes[index];
-    
-    //4 - Dispaly the quote in the textview
-    self.quoteText.text = [NSString stringWithFormat:@"Quote: \n\n%@", my_quote];
-    */
-    
-    // 1 - Get nos of rows in a array
-    int array_tot = [self.movieQuotes count];
-    
-    // 2- Get rando index
-    int index = ( arc4random() % array_tot);
-    
-    // 3 - Get the quote string for the index
-    NSString *my_quote = self.movieQuotes[index][@"quote"];
-    
-    // 4 - Display the quote in the textview
-    self.quoteText.text = [NSString stringWithFormat:@"Quote \n\n %@", my_quote];
-    
+
 }
 
 @end

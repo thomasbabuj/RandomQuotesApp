@@ -66,7 +66,7 @@ To display random quotes to the screen, you need two things.
 
   Syntax to calling a method in Objective-C
 
-  [ <name of the object you're calling the methoed on>  <name of the method you're calling>];
+  [ -name of the object you're calling the methoed on-  -name of the method you're calling-];
 
   [ self.myQuotes count];
 
@@ -80,6 +80,10 @@ Property List
 Segmented Controll
 
    It will allow you to select one item from a list of options.
+
+Predicates
+
+  An useful object that filters an array.  It's a bit like having a select with a with simple where clause in SQL.   
 
 
 
