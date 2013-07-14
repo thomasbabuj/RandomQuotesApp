@@ -87,9 +87,28 @@
         
             // 2.5 Get the quote string for the index
             NSString *quote = filteredArray[index][@"quote"];
+            
+            // 2.6 adding source value if there is any
+            NSString *source = [[filteredArray objectAtIndex:index] valueForKey:@"source"];
+            if  ( ![source length] == 0) {
+                quote = [NSString stringWithFormat:@"%@ \n\n (%@)", quote, source];
+            }
         
-            //2.6  Dispaly the quote in the textview
-            self.quoteText.text = [NSString stringWithFormat:@"Movie Quote \n\n%@", quote];
+            // 2.7 adding category specific text
+            if ( [selectedCategory isEqualToString:@"classic"] ) {
+                quote = [NSString stringWithFormat:@"From Classic Movie \n\n %@", quote];
+            } else {
+                quote = [NSString stringWithFormat:@"Movie Quote \n\n %@", quote];
+            }
+            
+            
+            // 2.8 added some extra text if the quote is from Harry Potter
+            if ( [source hasPrefix:@"Harry"] ) {
+                quote = [NSString stringWithFormat:@"Harry Rocks!! \n\n %@", quote];
+            }
+            //2.7  Dispaly the quote in the textview
+            self.quoteText.text = quote;
+            
         } else {
             self.quoteText.text = [NSString stringWithFormat:@"Sorry, No Quotes to display."];
         }
