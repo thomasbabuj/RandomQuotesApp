@@ -30,10 +30,17 @@ you need
 3)  type of the property
 4)  property name
 
-@property (nonatomic, strong) NSArrat *myQuotes;
+@property (nonatomic, strong) NSArray *myQuotes;
 
 nonatomic - increases performance at the cost of thread-safety
 strong    - indicates that a pointer to the specified variable will stay in memory as long as the object that holds the pointer exists.
+
+Atomic reference counting will take care of the memory management. so now we dont need to @synthesize the property, and in the really old days you had to manually declare your instance variables as well.
+
+NSArray and NSMutableArray Difference 
+  -  Can't add or remove items to an NSArray after you create it, but you can add or remove items from NSMutableArray whenever you want.
+
+
 
 
 
