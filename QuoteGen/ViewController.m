@@ -18,6 +18,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
     //Setup the textview with rounded corners
     self.quoteText.layer.cornerRadius = 10.0f;
     
@@ -32,6 +33,11 @@
                       @"The early bird catches the worm",
                       @"As slow as a wet week"
                       ];
+    
+    // 2- Load movie quotes from plist file
+    NSString *plistCatPath = [[NSBundle mainBundle] pathForResource:@"quuotes" ofType:@"plist" ];
+    self.movieQuotes = [NSMutableArray arrayWithContentsOfFile:plistCatPath];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,6 +49,8 @@
 // Adding action after the button Tapped
 -(IBAction)quoteButtonTapped:(id)sender {
 
+    // This code is to take values from myQuotes array
+    /*
     // 1 - Get nos of rows in a array
     int array_tot = [self.myQuotes count];
     
@@ -54,6 +62,20 @@
     
     //4 - Dispaly the quote in the textview
     self.quoteText.text = [NSString stringWithFormat:@"Quote: \n\n%@", my_quote];
+    */
+    
+    // 1 - Get nos of rows in a array
+    int array_tot = [self.movieQuotes count];
+    
+    // 2- Get rando index
+    int index = ( arc4random() % array_tot );
+    
+    // 3 - Get the quote string for the index
+    NSString *my_quote = self.movieQuotes[index][@"quote"];
+    
+    // 4 - Display the quote in the textview
+    self.quoteText.text = [NSString stringWithFormat:@"Quote \n\n %@", my_quote];
+    
 }
 
 @end
