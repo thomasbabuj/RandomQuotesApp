@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    //Setup the textview with rounded corners
+    self.quoteText.layer.cornerRadius = 10.0f;
     
     // 1- Add array of personal quotes
     self.myQuotes = @[
