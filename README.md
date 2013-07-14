@@ -58,6 +58,26 @@ To display random quotes to the screen, you need two things.
 
      - IBOutlet means that quoteText is an object that can be linked to an interface elementn on the XIB file, so that tht view controller can access ( or change ) properties of the interface element.
 
+  -(IBAction)quoteButtonTapped:(id)sender;
+
+  	- (dash) indicates you are defining an instance method.
+  	IBAction has a special property - it makes the method as something to you can connect to an action on a UI element.
+  	Id is a special type that means "any object that derives from NSObject". 
+
+  Syntax to calling a method in Objective-C
+
+  [ <name of the object you're calling the methoed on>  <name of the method you're calling>];
+
+  [ self.myQuotes count];
+
+  arc4Random() - generate random numbers
+
+  
+Property List
+
+	Is a special XML format defined to store basic data types like strings, numbers, arrays and dictionaries.  
+
+
 
 
 
