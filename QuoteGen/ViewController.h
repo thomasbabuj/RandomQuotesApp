@@ -16,5 +16,10 @@
 //To store quotes from movies
 @property (nonatomic, strong) NSMutableArray *movieQuotes;
 
+// Adding the TextView reference
+@property (nonatomic, strong) IBOutlet UITextView *quoteText;
+
+// this method will be called whenever the button is tapped
+-(IBAction)quoteButtonTapped:(id)sender;
 
 @end

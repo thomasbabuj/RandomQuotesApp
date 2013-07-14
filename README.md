@@ -40,6 +40,23 @@ Atomic reference counting will take care of the memory management. so now we don
 NSArray and NSMutableArray Difference 
   -  Can't add or remove items to an NSArray after you create it, but you can add or remove items from NSMutableArray whenever you want.
 
+ViewDidLoad is the method that executes when the view(screen) is frist created.
+
+Array Syntax @[item1, item2, item3].
+
+To create strings in Objective-C you need to prefix them with the @ symbol.
+
+To display random quotes to the screen, you need two things. 
+
+  - A reference to the Textview so you can set the text appropriately and 
+
+  - Notification when the button is tapped.
+
+  Using IBOutlet and IBAction keywords we will connect what goes on in the interface with your code.
+
+  @property (nonatomic, strong) IBOutlet UITextView *quoteText;
+
+     - IBOutlet means that quoteText is an object that can be linked to an interface elementn on the XIB file, so that tht view controller can access ( or change ) properties of the interface element.
 
 
 
