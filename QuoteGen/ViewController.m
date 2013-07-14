@@ -55,6 +55,7 @@
          // 1 - Get nos of rows in a array
          int array_tot = [self.myQuotes count];
          
+        /*
          // 2 - Get random index
          int index = (arc4random() % array_tot);
          
@@ -63,6 +64,23 @@
          
          //4 - Dispaly the quote in the textview
          self.quoteText.text = [NSString stringWithFormat:@"Quote: \n\n%@", my_quote];
+         */
+        
+        // Concatenate all your quotes together
+        
+        // 1.2 -Initialize string for concatenated quotes
+        NSString *all_my_quotes = @"";
+        NSString *my_quote = nil;
+        
+        //1.3 - Iterate through array
+        for(int x=0; x < array_tot; x++) {
+            my_quote = self.myQuotes[x];
+            all_my_quotes = [NSString stringWithFormat:@"%@ \n %@\n", all_my_quotes, my_quote];
+        }
+        
+        self.quoteText.text = [NSString stringWithFormat:@"%@", all_my_quotes];
+        
+        
         
     } else {
     
