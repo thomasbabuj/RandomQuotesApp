@@ -77,6 +77,12 @@ Property List
 
 	Is a special XML format defined to store basic data types like strings, numbers, arrays and dictionaries.  
 
+Segmented Controll
+
+   It will allow you to select one item from a list of options.
+
+
+
 
 
 

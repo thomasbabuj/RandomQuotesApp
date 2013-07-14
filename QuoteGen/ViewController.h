@@ -23,4 +23,8 @@
 // this method will be called whenever the button is tapped
 -(IBAction)quoteButtonTapped:(id)sender;
 
+// Adding the reference to the segmentedControll
+@property (nonatomic, strong) IBOutlet UISegmentedControl *quoteOpt;
+
+
 @end
