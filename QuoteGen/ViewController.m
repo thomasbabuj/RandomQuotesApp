@@ -35,7 +35,7 @@
                       ];
     
     // 2- Load movie quotes from plist file
-    NSString *plistCatPath = [[NSBundle mainBundle] pathForResource:@"quuotes" ofType:@"plist" ];
+    NSString *plistCatPath = [[NSBundle mainBundle] pathForResource:@"quotes" ofType:@"plist" ];
     self.movieQuotes = [NSMutableArray arrayWithContentsOfFile:plistCatPath];
     
 }
@@ -68,7 +68,7 @@
     int array_tot = [self.movieQuotes count];
     
     // 2- Get rando index
-    int index = ( arc4random() % array_tot );
+    int index = ( arc4random() % array_tot);
     
     // 3 - Get the quote string for the index
     NSString *my_quote = self.movieQuotes[index][@"quote"];
