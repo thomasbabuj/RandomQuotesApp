@@ -90,7 +90,6 @@
             selectedCategory = @"modern";
         }
         
-        
         // 2.2 filter array by category using predicate
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"category == %@", selectedCategory];
         NSArray *filteredArray = [self.movieQuotes filteredArrayUsingPredicate:predicate];
@@ -118,7 +117,6 @@
             } else {
                 quote = [NSString stringWithFormat:@"Movie Quote \n\n %@", quote];
             }
-            
             
             // 2.8 added some extra text if the quote is from Harry Potter
             if ( [source hasPrefix:@"Harry"] ) {
